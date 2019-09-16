@@ -8,7 +8,7 @@ This is a Python port of The Black Art of Multi Player Game Programming by Jazon
 
 **Summary of set up**  
 Development environment is **pyenv** and **direnv** on *Ubuntu*.
-
+---
 **Setting up pyenv**  
 1.Run **sudo apt-get update && sudo apt-get upgrade**  
 2.Run **sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev**  
@@ -24,13 +24,13 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
 ```bash
     pyenv versions
 ```
-
+---
 **Setting up direnv**  
 1.Run **sudo apt-get update && sudo apt-get upgrade**  
 2.Run **sudo apt-get install direnv**  
 3.Run **sudo apt-get install virtualenv**  
-4.Run **libsqlite3-dev wget curl llvm libncurses5-dev git**  
-5.Add this to **~/.bashrc** at the end of the file  
+5.Run **libsqlite3-dev wget curl llvm libncurses5-dev git**  
+6.Add this to **~/.bashrc** at the end of the file  
 ```bash
     show_virtual_env() {
         if [ -n "$VIRTUAL_ENV" ]; then
@@ -39,8 +39,8 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
     }
     PS1='$(show_virtual_env)'$PS1
     eval "$(direnv hook bash)"
-```
-6.Add this to **~/.direnvrc** at the end of the file  
+```  
+7.Add this to **~/.direnvrc** at the end of the file  
 ```bash
     use_python() {
         local python_root=$(pyenv root)/versions/$1
@@ -53,11 +53,20 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
         fi
     }
 ```
-7.Run **pyenv install 3.7.4** or any other python version (run **pyenv install --list** for available version to install)  
-8.In development folder, create **~/.envrc** file with content:
+---
+1.Run **pyenv install 3.7.4** or any other python version (run **pyenv install --list** for available version to install)  
+2.In your development folder, create **~/.envrc** file with content:
 ```bash
     use python 3.7.4
 ```
-9.You'll need to type: **direnv allow** for direnv to access the **.envrc** file.  
-10.Now, your python environment is set up! When you enter/exit the folder, the python virtual environment activates/deactivates automatically!  
+3.You'll need to type: **direnv allow** for direnv to access the **.envrc** file.  
+4.Now, your python environment is set up! When you enter/exit the folder, the python virtual environment activates/deactivates automatically!  
+5.In your development folder, type the following to install pygame (and other modules):
+```bash
+    pip install pygame
+```
+or
+```bash
+    pip install -r requiremnts.txt
+```
 
