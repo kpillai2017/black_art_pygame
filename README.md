@@ -15,16 +15,15 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
 3.Run **libsqlite3-dev wget curl llvm libncurses5-dev git**  
 4.Run **curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash**  
 5.Add this to **~/.bashrc** at the end of the file  
-<pre><code>
-export PATH="~/.pyenv/bin:$PATH"
-val "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-</code></pre>
-
+```bash
+    export PATH="~/.pyenv/bin:$PATH"
+    val "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+```
 6.Run the following after restarting the console. The ressponse will be installed python versions.
-<pre><code>
-pyenv versions
-</code></pre>
+```bash
+    pyenv versions
+```
 
 **Setting up direnv**  
 1.Run **sudo apt-get update && sudo apt-get upgrade**  
@@ -32,33 +31,33 @@ pyenv versions
 3.Run **sudo apt-get install virtualenv**  
 4.Run **libsqlite3-dev wget curl llvm libncurses5-dev git**  
 5.Add this to **~/.bashrc** at the end of the file  
-<pre><code>
-show\_virtual_env() {
-  if [ -n "$VIRTUAL_ENV" ]; then
-    echo "($(basename $VIRTUAL_ENV))"
-  fi
-}
-PS1='$(show_virtual_env)'$PS1
-eval "$(direnv hook bash)"
-</code></pre>
+```bash
+    show_virtual_env() {
+        if [ -n "$VIRTUAL_ENV" ]; then
+            echo "($(basename $VIRTUAL_ENV))"
+        fi
+    }
+    PS1='$(show_virtual_env)'$PS1
+    eval "$(direnv hook bash)"
+```
 6.Add this to **~/.direnvrc** at the end of the file  
-<pre><code>
-use\_python() {
-  local python_root=$(pyenv root)/versions/$1
-  load_prefix "$python_root"
-  if [[ -x "$python_root/bin/python" ]]; then
-    layout python "$python_root/bin/python"
-  else
-    echo "Error: $python_root/bin/python can't be executed."
-    exit
-  fi
-}
-</code></pre>
-7.Run **pyenv install 3.7.4** or any other python version (run **pyenv install --list** for available version to install)
+```bash
+    use_python() {
+        local python_root=$(pyenv root)/versions/$1
+        load_prefix "$python_root"
+        if [[ -x "$python_root/bin/python" ]]; then
+            layout python "$python_root/bin/python"
+        else
+            echo "Error: $python_root/bin/python can't be executed."
+            exit
+        fi
+    }
+```
+7.Run **pyenv install 3.7.4** or any other python version (run **pyenv install --list** for available version to install)  
 8.In development folder, create **~/.envrc** file with content:
-<pre><code>
-use python 3.7.4
-</code></pre>
-9. You'll need to type: **direnv allow** for direnv to access the **.envrc** file.  
+```bash
+    use python 3.7.4
+```
+9.You'll need to type: **direnv allow** for direnv to access the **.envrc** file.  
 10.Now, your python environment is set up! When you enter/exit the folder, the python virtual environment activates/deactivates automatically!  
 
