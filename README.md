@@ -19,8 +19,8 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
     val "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 ```
-5.Run the following after restarting the console. The ressponse will be installed python versions.
-```bash pyenv versions```  
+5.Run the following after restarting the console. The response will be installed python versions:
+```pyenv versions```  
 ---
 **Install and configure direnv**  
 1.Run ```bash sudo apt-get update && sudo apt-get upgrade```  
@@ -53,7 +53,7 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
 **Set up your development folder**  
 1.Run ```bash pyenv install 3.7.4``` or any other python version (run ```bash pyenv install --list``` for available versions to install)  
 2.In your development folder, create **~/.envrc** file with content:
-```bash use python 3.7.4```  
+```use python 3.7.4```  
 3.You'll need to type: **direnv allow** for direnv to access the **.envrc** file.  
 4.Now, your python environment is set up! When you enter/exit the folder, the python virtual environment activates/deactivates automatically!  
 5.In your development folder, type the following to install pygame (and other modules):
@@ -62,6 +62,6 @@ Development environment is **pyenv** and **direnv** on *Ubuntu*.
 ```
 or
 ```bash
-    pip install -r requiremnts.txt
+    pip install -r requirements.txt
 ```
 
