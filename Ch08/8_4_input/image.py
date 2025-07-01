@@ -1,12 +1,21 @@
+
+# image.py
+# Provides the Image class for loading and drawing bitmap images using pygame.
+
 import pygame
 import pygame.gfxdraw
 import os
 from dataclasses import dataclass
 
 
+
 @dataclass
 class Image:
+    """
+    Handles loading and drawing of bitmap images, including support for sprite sheets.
+    """
     def __init__(self):
+        # The pygame Surface for the image
         self.surface = 0
         self.width = 0
         self.height = 0
@@ -14,6 +23,10 @@ class Image:
         self.frame_height = 0
 
     def load(self, file_spec: str, *args) -> bool:
+        """
+        Load an image from file_spec. Optionally set frame width and height for sprite sheets.
+        Returns True if successful, False otherwise.
+        """
         i_list = []
 
         dir_name = os.path.dirname(file_spec)
@@ -27,12 +40,10 @@ class Image:
             self.width = self.surface.get_width()
             self.height = self.get_height()
 
-            # for method overloading, may include 2 parm for width and height
-            # get the two optional parameters
+            # Optional parameters for frame width and height
             for arg in args:
                 i_list.append(arg)
 
-            # process iff there are the 2 parameters
             if len(i_list) == 2:
                 self.frame_width = i_list[0]
                 self.frame_height = i_list[1]
@@ -44,6 +55,9 @@ class Image:
         return True
 
     def draw(self, x: int, y: int, *args) -> None:
+        """
+        Draw the image at (x, y). If additional arguments are provided, handle sprite sheet drawing.
+        """
         if not self.surface:
             return
 
@@ -52,8 +66,7 @@ class Image:
         for arg in args:
             i_list.append(arg)
 
-        # process iff there are 1 or 2 parameters after x and y
-        # if one parameter, it's the Graphics() instance
+        # If one parameter, it's the Graphics() instance
         if len(i_list) == 1:
             i_list[0].get_backbuffer().blit(self.surface, (x, y))
 

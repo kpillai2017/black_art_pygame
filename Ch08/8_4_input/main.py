@@ -1,26 +1,35 @@
+
+# --- Import required modules and game components ---
 import pygame, sys, os, random
 from graphics import Graphics
 from image import Image
 from input import Input
 
-FPS = 30
-FRAME_TIME = 1000 / FPS
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-FULLSCREEN = False
-SPRITE_SPEED = 10
+# --- Game configuration constants ---
+FPS = 30  # Frames per second
+FRAME_TIME = 1000 / FPS  # Duration of each frame in ms
+SCREEN_WIDTH = 800  # Window width
+SCREEN_HEIGHT = 600  # Window height
+FULLSCREEN = False  # Fullscreen toggle
+SPRITE_SPEED = 10  # Speed of sprite movement
 
-graphics = Graphics()
-myinput = Input()
-sprite = Image()
-background = Image()
+# --- Global game objects ---
+graphics = Graphics()  # Handles all drawing
+myinput = Input()      # Handles keyboard/mouse input
+sprite = Image()       # The main sprite image
+background = Image()   # The background image
 
 
 def rand() -> int:
+    """Return a random integer (used for demo purposes)."""
     return random.randint(0, 32768)
 
 
 def init_program() -> None:
+    """
+    Initialize pygame, graphics, images, and input system.
+    Returns True if all resources loaded successfully.
+    """
     pygame.init()
 
     if not graphics.init(SCREEN_WIDTH, SCREEN_HEIGHT, FULLSCREEN):
@@ -38,8 +47,8 @@ def init_program() -> None:
 
     return True
 
-
 def free_program() -> None:
+    """Release all resources and quit pygame."""
     sprite.free()
     background.free()
     myinput.kill()
@@ -47,15 +56,15 @@ def free_program() -> None:
 
 
 def program_is_running() -> bool:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT or \
-                (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
-            return False
-
-    return True
+    """Return True if the main loop should continue running."""
+    return not myinput.get_event(pygame.QUIT)
 
 
 def main() -> int:
+    """
+    Main game loop: handles input, updates, and rendering.
+    Returns 0 on normal exit.
+    """
     sprite_x = 300
     sprite_y = 300
 
@@ -64,6 +73,7 @@ def main() -> int:
         return False
 
     while program_is_running():
+        # --- Input handling ---
         myinput.update()
 
         if myinput.key_down(pygame.K_ESCAPE):
@@ -71,6 +81,7 @@ def main() -> int:
 
         frame_start = pygame.time.get_ticks()
 
+        # Move sprite to mouse position if left or right mouse button pressed
         if myinput.mouse_down(Input.MOUSE_LEFT):
             sprite_x = myinput.get_mouse_x()
             sprite_y = myinput.get_mouse_y()
@@ -79,6 +90,7 @@ def main() -> int:
             sprite_x = myinput.get_mouse_x()
             sprite_y = myinput.get_mouse_y()
 
+        # Keyboard arrow keys move the sprite
         if myinput.key_down(pygame.K_UP):
             sprite_y -= SPRITE_SPEED
 
@@ -91,6 +103,7 @@ def main() -> int:
         if myinput.key_down(pygame.K_RIGHT):
             sprite_x += SPRITE_SPEED
 
+        # --- Rendering ---
         graphics.clear(0, 0, 0)
 
         background.draw(0, 0, graphics)
@@ -99,6 +112,7 @@ def main() -> int:
 
         graphics.flip()
 
+        # --- Frame timing ---
         frame_time = pygame.time.get_ticks() - frame_start
         delay = FRAME_TIME - frame_time
 

@@ -1,16 +1,30 @@
+
+# graphics.py
+# Provides the Graphics class for drawing operations using pygame.
+
 import pygame
 import pygame.gfxdraw
 from dataclasses import dataclass
 
 
+
 @dataclass
 class Graphics:
+    """
+    Handles all graphics operations, including drawing pixels, rectangles, and clearing the screen.
+    Uses pygame for rendering.
+    """
     def __init__(self):
+        # The main drawing surface (pygame Surface)
         self.backbuffer = 0
         self.width = 0
         self.height = 0
 
     def init(self, a_width: int, a_height: int, a_fullscreen: bool) -> bool:
+        """
+        Initialize the graphics system with the given width, height, and fullscreen mode.
+        Returns True if successful, False otherwise.
+        """
         self.width = a_width
         self.height = a_height
 
@@ -30,6 +44,9 @@ class Graphics:
         return True
 
     def draw_pixel(self, x: int, y: int, r: int, g: int, b: int) -> None:
+        """
+        Draw a single pixel at (x, y) with the specified RGB color.
+        """
         if self.backbuffer is None:
             return
 
@@ -47,12 +64,21 @@ class Graphics:
             self.backbuffer.unlock()
 
     def draw_rect(self, x: int, y: int, width: int, height: int, r: int, g: int, b: int) -> None:
+        """
+        Draw the outline of a rectangle at (x, y) with the given width, height, and color.
+        """
         pygame.draw.rect(self.backbuffer, (r, g, b), (x, y, width, height), 1)
 
     def fill_rect(self, x: int, y: int, width: int, height: int, r: int, g: int, b: int) -> None:
+        """
+        Draw a filled rectangle at (x, y) with the given width, height, and color.
+        """
         pygame.draw.rect(self.backbuffer, (r, g, b), (x, y, width, height))
 
     def clear(self, r: int, g: int, b: int) -> None:
+        """
+        Clear the screen to the specified RGB color.
+        """
         if self.backbuffer is None:
             return
 

@@ -1,0 +1,17 @@
+# .gitignore for Python projects
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.DS_Store
+*.log
+*.egg-info/
+.env
+.venv
+venv/
+build/
+dist/
+# Ignore graphics assets
+*.bmp
