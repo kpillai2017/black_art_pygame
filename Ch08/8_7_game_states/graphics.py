@@ -1,16 +1,19 @@
+
+# Graphics class for managing drawing operations and the main backbuffer
 import pygame
 import pygame.gfxdraw
 from dataclasses import dataclass
 
-
 @dataclass
 class Graphics:
     def __init__(self):
+        # The main drawing surface (screen)
         self.backbuffer = 0
         self.width = 0
         self.height = 0
 
     def init(self, a_width: int, a_height: int, a_fullscreen: bool) -> bool:
+        """Initialize the graphics system and create the main window."""
         self.width = a_width
         self.height = a_height
 
@@ -26,10 +29,10 @@ class Graphics:
         if self.backbuffer is None:
             print(f"Failed to initialise graphics!")
             return False
-
         return True
 
     def draw_pixel(self, x: int, y: int, r: int, g: int, b: int) -> None:
+        """Draw a single pixel at (x, y) with the given color."""
         if self.backbuffer is None:
             return
 
@@ -47,15 +50,17 @@ class Graphics:
             self.backbuffer.unlock()
 
     def draw_rect(self, x: int, y: int, width: int, height: int, r: int, g: int, b: int) -> None:
+        """Draw a rectangle outline."""
         pygame.draw.rect(self.backbuffer, (r, g, b), (x, y, width, height), 1)
 
     def fill_rect(self, x: int, y: int, width: int, height: int, r: int, g: int, b: int) -> None:
+        """Draw a filled rectangle."""
         pygame.draw.rect(self.backbuffer, (r, g, b), (x, y, width, height))
 
     def clear(self, r: int, g: int, b: int) -> None:
+        """Clear the screen to the given color."""
         if self.backbuffer is None:
             return
-
         self.fill_rect(0, 0, self.get_width(), self.get_height(), r, g, b)
 
     def get_width(self) -> int:

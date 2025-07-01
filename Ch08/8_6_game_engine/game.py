@@ -50,10 +50,9 @@ class Game:
         while not self.is_done:
             frame_start = pygame.time.get_ticks()
 
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.is_done = True
-                    break
+            if self.input.get_event(pygame.QUIT):
+                self.is_done = True
+                break
 
             self.input.update()
             self.update()
