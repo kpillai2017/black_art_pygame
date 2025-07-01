@@ -1,0 +1,14 @@
+# .gitignore for Python/Pygame project
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+# Ignore audio and graphics cache or temp files
+*.wav~
+*.bmp~
+# VSCode settings
+.vscode/
+# MacOS system files
+.DS_Store
