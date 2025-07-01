@@ -5,7 +5,6 @@ import pygame.gfxdraw
 import os
 from dataclasses import dataclass
 
-
 @dataclass
 class Image:
     def __init__(self):

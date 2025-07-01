@@ -8,7 +8,7 @@ class Stack:
         self.items = []
 
     def is_empty(self):
-        """Return True if the stack is empty."""
+        """Return True if the stack is empty"""
         return self.items == []
 
     def push(self, item):

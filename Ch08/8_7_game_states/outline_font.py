@@ -12,7 +12,7 @@ class OutlineFont:
         pygame.init()
 
     def load(self, file_spec: str, size: int) -> bool:
-        """Load a font from file with the given size."""
+        """Load a font from file with the given size"""
         self.font = pygame.font.Font(file_spec, size)
         if not self.font:
             return False

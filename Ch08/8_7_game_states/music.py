@@ -14,7 +14,7 @@ class Music:
         """Load a music file for playback."""
         pygame.mixer.music.load(file_spec)
         self.music = True
-        # If loading fails, self.music would remain None
+        # If loading fails, self.music would remain None.
         return True
 
     def free(self) -> None:

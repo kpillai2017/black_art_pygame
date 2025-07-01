@@ -13,7 +13,7 @@ class Audio:
         self.music = Music()
 
     def init(self) -> bool:
-        """Initialize the audio system."""
+        """Initialise the audio system."""
         pygame.mixer.pre_init(22050, -16, 2, 2048)
         pygame.init()
         pygame.mixer.quit()

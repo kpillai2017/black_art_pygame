@@ -15,7 +15,7 @@ class Image:
         self.frame_height = 0
 
     def load(self, file_spec: str, *args) -> bool:
-        """Load an image from file, optionally with frame size for spritesheets."""
+        """Load an image from file, optionally with frame size for spritesheets"""
         i_list = []
         dir_name = os.path.dirname(file_spec)
         file_name = os.path.basename(file_spec)

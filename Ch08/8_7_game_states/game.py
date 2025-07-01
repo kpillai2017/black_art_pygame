@@ -26,7 +26,7 @@ class Game:
         self.fps = f
 
     def delay(self, ticks: int) -> None:
-        """Delay the game for a given number of milliseconds."""
+        """Delay the game for a given number of milliseconds"""
         if ticks > 0:
             pygame.time.delay(int(ticks))
 

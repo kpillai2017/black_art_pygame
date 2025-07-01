@@ -4,7 +4,6 @@ import pygame
 from dataclasses import dataclass
 from graphics import Graphics
 
-
 @dataclass
 class OutlineFont:
     def __init__(self):

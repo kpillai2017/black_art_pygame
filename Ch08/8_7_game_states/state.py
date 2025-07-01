@@ -7,7 +7,7 @@ from graphics import Graphics
 @dataclass
 class GameState:
     def __init__(self):
-        # Reference to the state manager
+        # Reference to the state manager.
         self.manager = None
 
     def update(self) -> None:

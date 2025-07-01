@@ -23,7 +23,7 @@ class SplashState(GameState):
         self.sound_played = 0
 
     def init(self, i: Input, m: StateManager) -> bool:
-        """Initialize splash state with images and sound."""
+        """Initialize splash state with images and sound"""
         self.input = i
         self.set_manager(m)
         if not self.background_image.load("graphics/splash/background.bmp"):

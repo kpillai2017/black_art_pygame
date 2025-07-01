@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from image import Image
 from graphics import Graphics
 
-
 @dataclass
 class RasterFont:
     def __init__(self):

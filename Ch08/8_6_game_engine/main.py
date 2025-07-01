@@ -3,7 +3,7 @@
 from game import Game
 
 def main() -> int:
-    # Create the game instance
+    # Create the game instance.
     game = Game()
     if not game.init():
         game.free()

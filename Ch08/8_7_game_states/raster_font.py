@@ -14,7 +14,7 @@ class RasterFont:
         self.char_size = 0
 
     def load(self, file_spec: str) -> bool:
-        """Load the bitmap font image and set up character size."""
+        """Load the bitmap font image and set up character size"""
         if not self.image.load(file_spec):
             return False
         self.char_size = self.image.get_width() / self.NUM_COLUMNS

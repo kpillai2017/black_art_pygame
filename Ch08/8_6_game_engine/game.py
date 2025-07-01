@@ -5,7 +5,6 @@ from graphics import Graphics
 from input import Input
 from audio import Audio
 
-
 @dataclass
 class Game:
     def __init__(self):

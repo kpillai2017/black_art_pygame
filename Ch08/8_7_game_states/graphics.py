@@ -13,7 +13,7 @@ class Graphics:
         self.height = 0
 
     def init(self, a_width: int, a_height: int, a_fullscreen: bool) -> bool:
-        """Initialize the graphics system and create the main window."""
+        """Initialise the graphics system and create the main window."""
         self.width = a_width
         self.height = a_height
 

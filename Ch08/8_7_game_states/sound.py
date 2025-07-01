@@ -15,7 +15,7 @@ class Sound:
         # pygame.mixer.init(22050, -16, 2, 1024)
 
     def load(self, file_spec: str) -> bool:
-        """Load a sound effect from file."""
+        """Load a sound effect from file"""
         self.sound = pygame.mixer.Sound(file_spec)
         if not self.sound:
             print(f"Failed to load sound: {file_spec}")

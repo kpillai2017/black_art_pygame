@@ -17,7 +17,7 @@ class GameStateDemo(Game):
         self.splash_state = SplashState()
 
     def init(self) -> bool:
-        """Initialize the game and all states."""
+        """Initialise the game and all states."""
         if not self.init_system("Game State Demo", 800, 600, False):
             return False
 

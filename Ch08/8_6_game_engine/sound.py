@@ -4,7 +4,6 @@ import pygame
 import pygame.gfxdraw
 from dataclasses import dataclass
 
-
 @dataclass
 class Sound:
     def __init__(self):

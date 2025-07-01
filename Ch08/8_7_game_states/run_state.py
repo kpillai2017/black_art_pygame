@@ -14,7 +14,7 @@ class RunState(GameState):
         self.input = Input()
         self.background_image = Image()
         self.gear_image = Image()
-        self.IMAGE_FRAMES = 5  # Number of animation frames
+        self.IMAGE_FRAMES = 5  # Number of animation frames.
         self.image_frame = 0
         self.frame_counter = 0
 

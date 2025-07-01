@@ -3,7 +3,7 @@
 from game_state_demo import GameStateDemo
 
 def main() -> int:
-    # Create and initialize the game
+    # Create and initialise the game
     game = GameStateDemo()
     if not game.init():
         game.free()
