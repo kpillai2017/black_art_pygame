@@ -538,4 +538,5 @@ here (subsystem classes, `Game` subclass, state stack) are the scaffolding they'
 ---
 
 *Original book and design © Jazon Yamamoto. This port is an educational re-implementation in
-Python; refer to the book for the full explanations and C++ source.*
+Python; refer to the book for the full explanations and C++ source. The images, sounds, music
+and fonts belong to their original copyright holders. See [ATTRIBUTION.md](ATTRIBUTION.md).*
